@@ -317,7 +317,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
     </p>
     <div class="hero-honest">
       <div class="honest-bar"></div>
-      <span class="honest-text">If your current coverage is solid, Frank will tell you that &mdash; and you keep it.</span>
+      <span class="honest-text" id="heroHonest">If your current coverage is solid, Frank will tell you that &mdash; and you keep it.</span>
     </div>
     <div class="hero-actions">
       <a href="#quote" class="btn-primary">Get Frank's Free Review <div class="arr"></div></a>
@@ -346,7 +346,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
       <span class="frank-char-badge">Frank</span>
     </div>
     <div>
-      <div class="frank-bar-quote">"YOUR BANK DOESN'T WORK FOR YOU. WE DO."</div>
+      <div class="frank-bar-quote" id="frankBarQuote">"YOUR BANK DOESN'T WORK FOR YOU. WE DO."</div>
       <p class="frank-bar-sub">Independent advisor. No bank affiliation. No proprietary products. No quotas. Contracted with 6 carriers &mdash; the only measure of success is whether the coverage actually serves your family.</p>
     </div>
   </div>
@@ -641,36 +641,122 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
 </footer>
 
 <script>
-// ── Dynamic headline by URL param ──────────────────────────────────────────
+// ── Dynamic content by URL param ──────────────────────────────────────────
 const HEADLINES = {
-  life:       { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"LOOKING FOR", accent:"LIFE INSURANCE", sub:"IN ALBERTA? ASK FRANK FIRST." },
-  quote:      { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"WANT A REAL", accent:"LIFE INSURANCE QUOTE?", sub:"FRANK RUNS ALL 6 CARRIERS." },
-  broker:     { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"LOOKING FOR A", accent:"BROKER IN CALGARY?", sub:"FRANK WORKS FOR YOU. NOT A BANK." },
-  mortgage:   { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"BANK MORTGAGE", accent:"INSURANCE?", sub:"FRANK'LL TELL YOU WHAT YOU'RE MISSING." },
-  whole:      { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"EXPLORING", accent:"WHOLE LIFE INSURANCE?", sub:"FRANK COMPARES ALL 6 ALBERTA CARRIERS." },
-  critical:   { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"NEED CRITICAL", accent:"ILLNESS COVERAGE?", sub:"FRANK FINDS THE RIGHT FIT. 6 CARRIERS." },
-  disability: { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"PROTECTING YOUR", accent:"INCOME IF YOU CAN'T WORK?", sub:"FRANK KNOWS ALBERTA DISABILITY OPTIONS." },
+  life: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "LOOKING FOR",
+    accent:    "LIFE INSURANCE",
+    sub:       "IN ALBERTA? ASK FRANK FIRST.",
+    body:      "Most Albertans get quoted by one company. Frank runs your profile through <strong>6 competing carriers</strong> and tells you what you're actually getting — including what your bank hoped you'd never ask.",
+    honest:    "If your current coverage is solid, Frank will tell you that — and you keep it.",
+    frankbar:  "\"YOUR BANK DOESN'T WORK FOR YOU. WE DO.\"",
+    title:     "Life Insurance Alberta — Frank Cover"
+  },
+  mortgage: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "BANK MORTGAGE",
+    accent:    "INSURANCE?",
+    sub:       "FRANK'LL TELL YOU WHAT YOU'RE REALLY PAYING FOR.",
+    body:      "Your bank's mortgage insurance protects <strong>their loan — not your family.</strong> Frank compares 6 independent carriers and shows you the comparison your bank hopes you never see.",
+    honest:    "If your current bank coverage is genuinely the right fit, Frank will tell you that — and you keep it.",
+    frankbar:  "\"YOUR BANK'S INSURANCE PROTECTS THEIR LOAN. WE PROTECT YOUR FAMILY.\"",
+    title:     "Bank Mortgage Insurance Review — Frank Cover"
+  },
+  broker: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "LOOKING FOR AN",
+    accent:    "INDEPENDENT ADVISOR?",
+    sub:       "FRANK WORKS FOR YOU. NOT A BANK.",
+    body:      "Frank isn't tied to one company. We run your profile through <strong>6 competing carriers</strong> — Canada Life, RBC, Empire, Assumption, and more — and tell you which policy actually serves your family best.",
+    honest:    "No quotas. No captive products. The recommendation is always what's right for you.",
+    frankbar:  "\"MOST ADVISORS REPRESENT ONE COMPANY. WE REPRESENT YOU.\"",
+    title:     "Independent Life Insurance Advisor Alberta — Frank Cover"
+  },
+  term: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "COMPARING",
+    accent:    "TERM LIFE INSURANCE?",
+    sub:       "FRANK RUNS ALL 6 CARRIERS. FREE.",
+    body:      "Term life is the most affordable way to protect your family — but <strong>only if you're underwritten upfront,</strong> not at claim time. Frank compares 6 carriers and tells you exactly where you stand.",
+    honest:    "Age moves pricing faster than most expect. The sooner you lock in your rate, the better.",
+    frankbar:  "\"THE CHEAPEST POLICY ISN'T ALWAYS THE BEST ONE. FRANK EXPLAINS THE DIFFERENCE.\"",
+    title:     "Term Life Insurance Comparison Alberta — Frank Cover"
+  },
+  quote: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "GET AN HONEST",
+    accent:    "LIFE INSURANCE QUOTE",
+    sub:       "FRANK RUNS 6 CARRIERS. 15 MINUTES. FREE.",
+    body:      "Most Albertans get quoted by one company and assume that's the market. Frank runs your profile through <strong>6 competing carriers</strong> and shows you the real range — then explains what the differences actually mean.",
+    honest:    "If the first quote you got was genuinely your best option, Frank will confirm that.",
+    frankbar:  "\"ONE QUOTE ISN'T A COMPARISON. SIX QUOTES IS.\"",
+    title:     "Life Insurance Quote Alberta — Frank Cover"
+  },
+  whole: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "EXPLORING",
+    accent:    "WHOLE LIFE INSURANCE?",
+    sub:       "FRANK GIVES YOU THE HONEST TAKE FIRST.",
+    body:      "Whole life has real benefits — but most people are oversold on it when term would serve them better. Frank runs both options through <strong>6 carriers</strong> and tells you which one actually fits your situation.",
+    honest:    "If whole life is the right fit for you, Frank will show you exactly why and which carrier wins.",
+    frankbar:  "\"BUILT-IN CASH VALUE SOUNDS GOOD. FRANK EXPLAINS WHEN IT ACTUALLY IS.\"",
+    title:     "Whole Life Insurance Alberta — Frank Cover"
+  },
+  critical: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "NEED CRITICAL",
+    accent:    "ILLNESS COVERAGE?",
+    sub:       "FRANK FINDS THE RIGHT FIT ACROSS 6 CARRIERS.",
+    body:      "A critical illness policy pays a lump sum on diagnosis — but <strong>most group plans have exclusions that only surface when you file a claim.</strong> Frank reviews your current coverage and compares 6 independent carriers.",
+    honest:    "If your group plan already covers you well, Frank will tell you that directly.",
+    frankbar:  "\"MOST GROUP CRITICAL ILLNESS PLANS HAVE GAPS. FRANK SHOWS YOU WHERE YOURS ARE.\"",
+    title:     "Critical Illness Insurance Alberta — Frank Cover"
+  },
+  disability: {
+    pill:      "frank /fraNGk/ — open, honest, and direct in speech or writing",
+    h1:        "PROTECTING YOUR",
+    accent:    "INCOME IF YOU CAN'T WORK?",
+    sub:       "FRANK KNOWS ALBERTA DISABILITY OPTIONS.",
+    body:      "Disability is the most likely claim you'll ever make — and the most likely to be undercovered. Frank reviews what you currently have and compares <strong>6 independent carriers</strong> to make sure your income is actually protected.",
+    honest:    "Most Albertans are either uninsured or underinsured for disability. Frank finds out which one applies to you.",
+    frankbar:  "\"DISABILITY IS THE CLAIM MOST LIKELY TO HAPPEN. FRANK MAKES SURE YOU'RE READY.\"",
+    title:     "Disability Insurance Alberta — Frank Cover"
+  },
 };
+
 (function(){
-  const p = new URLSearchParams(window.location.search);
+  const p    = new URLSearchParams(window.location.search);
   const type = p.get("type") || "life";
-  const h = HEADLINES[type] || HEADLINES.life;
-  const el = {
-    pill: document.getElementById("pillText"),
-    h1:   document.getElementById("heroH1"),
-    acc:  document.getElementById("heroAccent"),
-    sub:  document.getElementById("heroSub"),
-  };
-  if(el.pill) el.pill.textContent = h.pill;
-  if(el.acc)  el.acc.textContent  = h.accent;
-  if(el.sub)  el.sub.textContent  = h.sub;
-  // Update h1 first text node
-  if(el.h1){
-    const nodes = el.h1.childNodes;
-    if(nodes[0] && nodes[0].nodeType===3) nodes[0].textContent = h.h1 + ' ';
+  const h    = HEADLINES[type] || HEADLINES.life;
+
+  // Helper: set text safely
+  function setText(id, val){ const el=document.getElementById(id); if(el) el.textContent=val; }
+  function setHTML(id, val){ const el=document.getElementById(id); if(el) el.innerHTML=val; }
+
+  // Pill
+  setText("pillText", h.pill);
+
+  // H1 — first text node + accent span + sub span
+  const h1el = document.getElementById("heroH1");
+  if(h1el){
+    const nodes = h1el.childNodes;
+    if(nodes[0] && nodes[0].nodeType===3) nodes[0].textContent = h.h1 + " ";
   }
-  // Update page title for SEO
-  document.title = h.accent.charAt(0)+h.accent.slice(1).toLowerCase() + " — Frank Cover Alberta";
+  setText("heroAccent", h.accent);
+  setText("heroSub",    h.sub);
+
+  // Body copy
+  setHTML("heroBody", h.body);
+
+  // Honest bar
+  setText("heroHonest", h.honest);
+
+  // Frank bar quote
+  setText("frankBarQuote", h.frankbar);
+
+  // Page title
+  document.title = h.title;
 })();
 
 // ── Nav scroll ────────────────────────────────────────────────────────────
