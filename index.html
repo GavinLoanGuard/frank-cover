@@ -519,10 +519,10 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
       <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">Free &bull; No Obligation &bull; Alberta Only</span></div>
       <div class="s-h" style="margin-bottom:20px">15 MINUTES.<br>6 CARRIERS.<br><span class="ac" style="color:var(--acid)">ONE HONEST</span><br><span class="d" style="color:var(--dim)">ANSWER.</span></div>
       <div class="form-promise">
-        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Frank reviews your profile personally</strong> and calls back within 2 business hours at your preferred time. Not a call centre. Not a script.</p></div>
-        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Both options available:</strong> submit the form or call (403) 536-6897 directly. Frank answers.</p></div>
-        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>If what you have is fine</strong>, you'll hear that directly. Frank earns nothing if you don't switch &mdash; that's why the answer is always straight.</p></div>
-        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Age moves pricing faster than most expect.</strong> For many applicants, a Term 20 quote on $500k can jump materially between late 30s and early 40s. Final premiums depend on age, health, smoker status, and carrier underwriting.</p></div>
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>We call you within 2 business hours</strong> — at the time you choose. Not a call centre. Not a script. A real conversation.</p></div>
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Prefer to call us?</strong> (403) 536-6897. We answer.</p></div>
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>If what you have is fine</strong>, you'll hear that directly. We earn nothing if you don't switch &mdash; that's why the answer is always straight.</p></div>
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Age moves pricing fast.</strong> A Term 20 quote on $750K can jump significantly between late 30s and early 40s. The sooner you lock in your rate, the better.</p></div>
       </div>
     </div>
     <div class="form-shell reveal" style="transition-delay:.15s">
@@ -538,7 +538,10 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
               <div class="field"><label for="ff">First Name</label><input id="ff" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required></div>
               <div class="field"><label for="fl">Last Name</label><input id="fl" type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required></div>
             </div>
-            <div class="field"><label for="fp">Best Phone Number</label><input id="fp" type="tel" name="phone" placeholder="(403) 000-0000" autocomplete="tel" required></div>
+            <div class="field"><label for="fp">Phone Number <span style="color:var(--dim);font-weight:400;font-size:.58rem;letter-spacing:.04em">(optional if email provided)</span></label><input id="fp" type="tel" name="phone" placeholder="(403) 000-0000" autocomplete="tel"></div>
+            <div class="field"><label for="fe">Email Address <span style="color:var(--dim);font-weight:400;font-size:.58rem;letter-spacing:.04em">(optional if phone provided)</span></label><input id="fe" type="email" name="email" placeholder="you@email.com" autocomplete="email"></div>
+            <p id="contact-error" style="display:none;font-size:.78rem;color:var(--red);margin:-4px 0 6px;font-weight:600">Please provide at least a phone number or email so we can reach you.</p>
+            <div class="field"><label for="fpc">How Would You Prefer We Reach You?</label><div class="sel"><select id="fpc" name="contact_preference" autocomplete="off" required><option value="" disabled selected>Select one</option><option>Call or text me</option><option>Email me first</option><option>Either works</option></select></div></div>
             <div class="field">
               <label for="fc">Coverage You're Exploring</label>
               <div class="sel"><select id="fc" name="coverage_type" autocomplete="off" required>
@@ -578,8 +581,25 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
         </form>
         <div class="success" id="formSuccess">
           <div class="s-icon">&#10003;</div>
-          <div class="s-h">Frank Got Your Message.</div>
-          <p class="s-p">Expect a direct call at your preferred time. No scripts, no pressure. Just an honest look at what you're actually covered for.</p>
+          <div class="s-h">You're In The Queue.</div>
+          <p class="s-p" style="margin-bottom:14px">We received your request. Here's exactly what happens next:</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;text-align:left">
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <div style="width:22px;height:22px;border-radius:50%;background:var(--acid);color:var(--black);font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">1</div>
+              <p style="font-size:.88rem;color:var(--body);line-height:1.6;margin:0"><strong style="color:var(--white)">Within 2 business hours</strong> — we call you at the number you provided, at your preferred time.</p>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <div style="width:22px;height:22px;border-radius:50%;background:var(--acid);color:var(--black);font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">2</div>
+              <p style="font-size:.88rem;color:var(--body);line-height:1.6;margin:0"><strong style="color:var(--white)">15-minute call</strong> — we run your profile through 6 carriers and tell you exactly where you stand.</p>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <div style="width:22px;height:22px;border-radius:50%;background:var(--acid);color:var(--black);font-size:.65rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">3</div>
+              <p style="font-size:.88rem;color:var(--body);line-height:1.6;margin:0"><strong style="color:var(--white)">Honest answer</strong> — if what you have is fine, we tell you that. No pressure, no scripts.</p>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:16px">
+            <p style="font-size:.78rem;color:var(--dim);margin:0">Want to reach us directly in the meantime? <a href="tel:+14035366897" style="color:var(--acid);text-decoration:none;font-weight:600">(403) 536-6897</a></p>
+          </div>
         </div>
         <p class="fine">Private &amp; never shared. Licensed under the Insurance Act (RSA 2000, c I-3). <a href="/privacy">Privacy Policy</a></p>
       </div>
@@ -790,6 +810,19 @@ function toggleFaq(btn){
 async function handleSubmit(e){
   e.preventDefault();
   const btn=e.target.querySelector(".sub-btn");
+
+  // Require at least phone or email
+  const phone = document.getElementById("fp").value.trim();
+  const email = document.getElementById("fe").value.trim();
+  if(!phone && !email){
+    const msg = document.getElementById("contact-error");
+    if(msg) msg.style.display="block";
+    document.getElementById("fp").focus();
+    return;
+  }
+  if(document.getElementById("contact-error"))
+    document.getElementById("contact-error").style.display="none";
+
   btn.textContent="Sending…";btn.disabled=true;
 
   const params=new URLSearchParams(window.location.search);
@@ -797,10 +830,11 @@ async function handleSubmit(e){
 
   const payload={
     access_key:"3a48208d-036e-46d1-8f7e-1619777408fe",
-    subject:"New Frank Cover Lead — "+( data.coverage_type||"General Inquiry"),
+    subject:"New Frank Cover Lead — "+(data.coverage_type||"General Inquiry")+" ["+(data.contact_preference||"No preference stated")+"]",
     from_name:"Frank Cover",
     first_name:data.first_name,
     last_name:data.last_name,
+    email:data.email||"",
     phone:data.phone,
     coverage_type:data.coverage_type||"Not specified",
     coverage_amount:data.coverage_amount||"Not specified",
@@ -809,7 +843,14 @@ async function handleSubmit(e){
     utm_medium:params.get("utm_medium")||"",
     utm_campaign:params.get("utm_campaign")||"",
     utm_keyword:params.get("utm_keyword")||params.get("keyword")||"",
-    landing_page:window.location.href
+    landing_page:window.location.href,
+    replyto:data.email||"",
+    contact_preference:data.contact_preference||"Not specified",
+    botcheck:"",
+    redirect:"",
+    "autoresponse.enabled":true,
+    "autoresponse.subject":"Frank Cover — We got your request",
+    "autoresponse.message":"Hi "+data.first_name+",\n\nWe received your request for a free insurance review.\n\nHere\'s what happens next:\n\n1. We\'ll call you at "+data.phone+" within 2 business hours, at your preferred time ("+( data.call_time||"as soon as possible")+").\n\n2. The call takes about 15 minutes. We run your profile through 6 independent carriers and give you a straight comparison.\n\n3. Honest answer — if what you have is fine, we\'ll tell you that. No pressure. No scripts.\n\nIf you\'d rather reach us directly in the meantime:\nCall or text: (403) 536-6897\nWebsite: frankcover.ca\n\n— Frank Cover\nGavin Dyer, Independent Life & Disability Advisor\nAIC Licensed Alberta | frankcover.ca"
   };
 
   try{
