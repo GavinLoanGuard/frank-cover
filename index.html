@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frank Cover — Independent Insurance Advisor. 6 Carriers. Alberta.</title>
 <meta name="description" content="Frank runs your profile through 6 Alberta carriers and gives you an honest answer. 15 minutes. Free. No obligation.">
-<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="icon" type="image/png" href="/images/frank-favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@ body::after{content:"";position:fixed;inset:0;background-image:url("data:image/s
 
 /* HERO */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-bg-frank{position:absolute;right:-2%;top:0;bottom:0;width:54%;z-index:1;background:url(/images/frank-hero.jpg) center top/cover no-repeat}
+.hero-bg-frank{position:absolute;right:-2%;top:0;bottom:0;width:54%;z-index:1;background:url(/images/frank-hero.webp) center top/cover no-repeat}
 .hero-bg-frank::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--black) 0%,var(--black) 4%,rgba(8,8,8,.3) 35%,transparent 58%);z-index:2}
 .hero-bg-frank::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,8,.2) 0%,transparent 15%,transparent 72%,var(--black) 100%);z-index:2}
 .hero-glow{position:absolute;right:18%;top:15%;width:380px;height:380px;background:radial-gradient(circle,var(--acid-glow) 0%,transparent 65%);z-index:0;pointer-events:none}
@@ -342,7 +342,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
 <div class="frank-bar reveal">
   <div class="frank-bar-inner">
     <div class="frank-char">
-      <img src="/images/frank-avatar.jpg" class="frank-char-img" alt="Frank">
+      <img src="/images/frank-avatar.webp" class="frank-char-img" alt="Frank">
       <span class="frank-char-badge">Frank</span>
     </div>
     <div>
@@ -417,8 +417,51 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
+<!-- WHAT FRANK REVIEWS -->
 <section class="sec">
+  <div class="wrap">
+    <div class="two-col reveal">
+      <div>
+        <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">What Frank Reviews</span></div>
+        <h2 class="s-h">Five products.<br><span class="d">One honest take on each.</span></h2>
+      </div>
+      <p class="s-p">Frank covers all five product types &mdash; not just mortgage insurance. <strong>Whatever brought you here, here's what most people don't know about what they're looking at.</strong></p>
+    </div>
+    <table class="tbl reveal">
+      <thead>
+        <tr>
+          <th style="color:var(--dim)">Product</th>
+          <th style="color:var(--acid);border-left:1px solid var(--border)">What most people don't know</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Term Life</td>
+          <td style="border-left:1px solid var(--border);color:var(--body)">The cheapest way to protect your family &mdash; but only if you're underwritten upfront, not at claim time.</td>
+        </tr>
+        <tr>
+          <td>Whole / Permanent</td>
+          <td style="border-left:1px solid var(--border);color:var(--body)">Built-in cash value sounds good. Most people are oversold on it when term would serve them better.</td>
+        </tr>
+        <tr>
+          <td>Mortgage Protection</td>
+          <td style="border-left:1px solid var(--border);color:var(--body)">Your bank's version protects their loan. Individual coverage protects your family. Not the same product.</td>
+        </tr>
+        <tr>
+          <td>Critical Illness</td>
+          <td style="border-left:1px solid var(--border);color:var(--body)">Lump sum on diagnosis. Most group plans have exclusions that only surface when you file.</td>
+        </tr>
+        <tr>
+          <td>Disability</td>
+          <td style="border-left:1px solid var(--border);color:var(--body)">The most likely claim you'll ever make &mdash; and the most likely to be undercovered or missing entirely.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="two-col reveal">
       <div>
