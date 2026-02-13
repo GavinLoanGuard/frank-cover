@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frank Cover — Independent Insurance Advisor. 6 Carriers. Alberta.</title>
+<meta name="description" content="Frank runs your profile through 6 Alberta carriers and gives you an honest answer. 15 minutes. Free. No obligation.">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;--black-2:#101010;--black-3:#161616;--black-4:#1e1e1e;
+  --white:#F5F3EF;--body:rgba(245,243,239,.82);--dim:rgba(245,243,239,.44);
+  --faint:rgba(245,243,239,.07);--acid:#C8F562;--acid-glow:rgba(200,245,98,.1);
+  --red:#FF4040;--green:#3ECF6A;--border:rgba(245,243,239,.08);--border-md:rgba(245,243,239,.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9998;opacity:.38}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--black)}::-webkit-scrollbar-thumb{background:var(--acid)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:16px 52px;display:flex;align-items:center;justify-content:space-between;transition:background .3s,border-color .3s}
+.nav.scrolled{background:rgba(8,8,8,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:36px;height:36px;flex-shrink:0}
+.nav-name{font-family:"Bebas Neue",sans-serif;font-size:1.45rem;letter-spacing:.06em;color:var(--white);line-height:1}
+.nav-name span{color:var(--acid)}
+.nav-def{font-size:.58rem;color:var(--dim);letter-spacing:.03em;font-style:italic;margin-top:2px;line-height:1}
+.nav-right{display:flex;align-items:center;gap:18px}
+.nav-phone{font-size:.8rem;font-weight:600;letter-spacing:.04em;color:var(--dim);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:7px}
+.nav-phone:hover{color:var(--white)}
+.nav-phone-dot{width:7px;height:7px;border-radius:50%;background:var(--acid);flex-shrink:0;animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+.nav-cta{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--acid);color:var(--black);padding:10px 18px;border-radius:2px;text-decoration:none;transition:opacity .2s,transform .15s}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg-frank{position:absolute;right:-2%;top:0;bottom:0;width:54%;z-index:1;background:url(/images/frank-hero.jpg) center top/cover no-repeat}
+.hero-bg-frank::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--black) 0%,var(--black) 4%,rgba(8,8,8,.3) 35%,transparent 58%);z-index:2}
+.hero-bg-frank::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,8,.2) 0%,transparent 15%,transparent 72%,var(--black) 100%);z-index:2}
+.hero-glow{position:absolute;right:18%;top:15%;width:380px;height:380px;background:radial-gradient(circle,var(--acid-glow) 0%,transparent 65%);z-index:0;pointer-events:none}
+.hero-content{position:relative;z-index:3;padding:120px 52px 110px;max-width:660px;width:100%}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:var(--faint);border:1px solid var(--border);border-radius:20px;padding:6px 14px;margin-bottom:28px;opacity:0;animation:up .6s ease .05s forwards}
+.hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--acid);flex-shrink:0}
+.hero-pill-text{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--acid)}
+.hero-h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(3.4rem,6.5vw,6.8rem);line-height:.94;letter-spacing:.02em;color:var(--white);margin-bottom:10px;opacity:0;animation:up .7s ease .15s forwards}
+.hero-h1 .acid{color:var(--acid)}
+.hero-h1 .sub{display:block;font-size:clamp(1.8rem,3.2vw,3.2rem);color:var(--dim);letter-spacing:.04em;line-height:1.05;margin-top:6px}
+.hero-divider{width:52px;height:2px;background:var(--acid);margin:22px 0;opacity:0;animation:up .5s ease .28s forwards}
+.hero-def{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px;margin-bottom:18px;padding:11px 14px;background:rgba(200,245,98,.05);border-left:2px solid var(--acid);opacity:0;animation:up .6s ease .32s forwards}
+.hero-def-word{font-family:"Bebas Neue",sans-serif;font-size:1rem;letter-spacing:.06em;color:var(--acid);line-height:1}
+.hero-def-pron{font-size:.76rem;color:var(--dim);font-style:italic}
+.hero-def-sep{font-size:.76rem;color:var(--dim)}
+.hero-def-meaning{font-size:.76rem;line-height:1.55;color:var(--body);font-style:italic}
+.hero-body{font-size:1.02rem;line-height:1.78;color:var(--body);max-width:460px;margin-bottom:14px;font-weight:400;opacity:0;animation:up .6s ease .38s forwards}
+.hero-body strong{color:var(--white);font-weight:600}
+.hero-honest{display:flex;align-items:flex-start;gap:10px;margin-bottom:32px;opacity:0;animation:up .5s ease .46s forwards}
+.honest-bar{width:2px;height:auto;background:var(--acid);flex-shrink:0;align-self:stretch;min-height:18px}
+.honest-text{font-size:.84rem;color:var(--dim);line-height:1.6;font-style:italic}
+.hero-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:28px;opacity:0;animation:up .5s ease .54s forwards}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--acid);color:var(--black);font-family:"DM Sans",sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;padding:16px 26px;border-radius:2px;text-decoration:none;transition:opacity .2s,transform .15s;border:none;cursor:pointer;white-space:nowrap}
+.btn-primary:hover{opacity:.88;transform:translateY(-2px)}
+.arr{width:14px;height:1px;background:currentColor;position:relative;flex-shrink:0;transition:width .2s}
+.arr::after{content:"";position:absolute;right:0;top:-3px;width:5px;height:5px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+.btn-primary:hover .arr{width:22px}
+.btn-call{display:inline-flex;align-items:center;gap:8px;background:var(--black-2);color:var(--white);border:1px solid var(--border-md);font-family:"DM Sans",sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.06em;padding:16px 22px;border-radius:2px;text-decoration:none;transition:border-color .2s,background .2s;white-space:nowrap}
+.btn-call:hover{border-color:var(--dim);background:var(--black-3)}
+.btn-call-dot{width:7px;height:7px;border-radius:50%;background:var(--acid);flex-shrink:0}
+.hero-trust{display:flex;align-items:center;gap:20px;opacity:0;animation:up .5s ease .62s forwards;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.trust-check{width:14px;height:14px;border-radius:50%;border:1px solid var(--acid);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.55rem;color:var(--acid)}
+/* Hero scroll stats */
+.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border)}
+.hstat{padding:18px 24px;border-right:1px solid var(--border);background:rgba(8,8,8,.75);backdrop-filter:blur(12px)}
+.hstat:last-child{border-right:none}
+.hstat-n{font-family:"Bebas Neue",sans-serif;font-size:1.9rem;letter-spacing:.04em;color:var(--white);line-height:1;margin-bottom:2px}
+.hstat-n .u{font-size:1.1rem}
+.hstat-l{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
+/* FRANK SAYS BAR */
+.frank-bar{background:var(--black-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.frank-bar-inner{max-width:1200px;margin:0 auto;padding:44px 52px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.frank-char{width:90px;height:90px;flex-shrink:0;position:relative}
+.frank-char-img{width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center 15%;border:2px solid var(--acid);display:block}
+.frank-char-badge{position:absolute;bottom:-2px;right:-2px;background:var(--acid);color:var(--black);font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 6px;border-radius:10px}
+.frank-bar-quote{font-family:"Bebas Neue",sans-serif;font-size:clamp(1.5rem,2.5vw,2.4rem);letter-spacing:.03em;line-height:1.05;color:var(--white);margin-bottom:8px}
+.frank-bar-sub{font-size:.88rem;color:var(--body);line-height:1.65;max-width:680px}
+
+/* MARQUEE */
+.mq{border-bottom:1px solid var(--border);overflow:hidden;padding:12px 0;background:var(--black-3)}
+.mq-track{display:inline-flex;animation:mq 32s linear infinite;white-space:nowrap}
+.mq-item{display:inline-flex;align-items:center;gap:32px;padding:0 32px}
+.mq-word{font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.mq-dot{width:3px;height:3px;border-radius:50%;background:var(--acid);flex-shrink:0}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq-track{animation-play-state:paused}}
+
+/* SECTIONS */
+.wrap{max-width:1200px;margin:0 auto}
+.sec{padding:90px 52px}
+.sec-dark{padding:90px 52px;background:var(--black-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.kicker{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.kicker-line{width:26px;height:1px;background:var(--acid);flex-shrink:0}
+.kicker-txt{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acid)}
+.s-h{font-family:"Bebas Neue",sans-serif;font-size:clamp(2.4rem,4vw,4rem);letter-spacing:.03em;line-height:1;color:var(--white)}
+.s-h .d{color:var(--dim)}
+.s-p{font-size:.97rem;line-height:1.8;color:var(--body)}
+.s-p strong{color:var(--white);font-weight:600}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end;margin-bottom:56px}
+
+/* PROBLEM */
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border)}
+.p-card{padding:36px 28px;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .25s}
+.p-card:last-child{border-right:none}
+.p-card:hover{background:var(--black-3)}
+.p-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--acid);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.p-card:hover::after{transform:scaleX(1)}
+.p-n{font-family:"Bebas Neue",sans-serif;font-size:3.5rem;letter-spacing:.04em;color:var(--faint);line-height:1;margin-bottom:14px}
+.p-h{font-size:.97rem;font-weight:700;color:var(--white);margin-bottom:9px;line-height:1.35}
+.p-b{font-size:.88rem;line-height:1.78;color:var(--body)}
+
+/* FRANK RULES */
+.rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:44px}
+.rule{background:var(--black-3);border:1px solid var(--border);padding:30px;position:relative;overflow:hidden;transition:border-color .25s,background .25s}
+.rule:hover{background:var(--black-4);border-color:var(--border-md)}
+.rule::before{content:attr(data-n);font-family:"Bebas Neue",sans-serif;font-size:4.5rem;color:var(--faint);position:absolute;top:6px;right:14px;line-height:1;letter-spacing:.04em;pointer-events:none}
+.rule-tag{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--acid);margin-bottom:10px;display:block}
+.rule-h{font-family:"Bebas Neue",sans-serif;font-size:1.45rem;letter-spacing:.03em;color:var(--white);margin-bottom:7px;line-height:1.05}
+.rule-p{font-size:.86rem;line-height:1.75;color:var(--body)}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;margin-top:44px}
+.tbl thead th{padding:11px 18px;font-size:.63rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid var(--border-md);text-align:left}
+.tbl thead th:first-child{color:var(--dim)}
+.tbl thead th:nth-child(2){color:var(--red);border-left:1px solid var(--border)}
+.tbl thead th:nth-child(3){color:var(--acid);border-left:1px solid var(--border)}
+.tbl tbody tr:hover{background:rgba(245,243,239,.018)}
+.tbl td{padding:13px 18px;font-size:.88rem;border-bottom:1px solid var(--border);line-height:1.4;vertical-align:middle}
+.tbl td:first-child{color:var(--white);font-weight:600;font-size:.8rem}
+.tbl td:nth-child(2),.tbl td:nth-child(3){border-left:1px solid var(--border);color:var(--body)}
+.bad{color:rgba(255,64,64,.82)!important}.good{color:var(--green)!important;font-weight:600!important}
+
+/* TESTIMONIALS */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:44px}
+.t-card{background:var(--black-3);border:1px solid var(--border);padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .22s}
+.t-card:hover{border-color:var(--border-md)}
+.t-qq{font-family:"Bebas Neue",sans-serif;font-size:3.2rem;color:var(--acid);opacity:.18;line-height:1;margin-bottom:6px;letter-spacing:.02em}
+.t-txt{font-size:.95rem;line-height:1.72;color:var(--white);margin-bottom:24px;font-style:italic;font-weight:300}
+.t-foot{border-top:1px solid var(--border);padding-top:14px;display:flex;justify-content:space-between;align-items:center}
+.t-name{font-size:.8rem;font-weight:700;color:var(--white);display:block;margin-bottom:2px}
+.t-det{font-size:.7rem;color:var(--dim)}
+.t-stars{color:var(--acid);font-size:.68rem;letter-spacing:.08em}
+
+/* FORM SECTION */
+.form-sec{padding:90px 52px;border-top:1px solid var(--border)}
+.form-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 460px;gap:72px;align-items:start}
+.form-promise{margin-top:32px;display:flex;flex-direction:column;gap:13px}
+.fp{display:flex;align-items:flex-start;gap:12px}
+.fp-dot{width:5px;height:5px;border-radius:50%;background:var(--acid);flex-shrink:0;margin-top:8px}
+.fp-txt{font-size:.9rem;line-height:1.66;color:var(--body)}
+.fp-txt strong{color:var(--white);font-weight:600}
+.form-shell{background:var(--black-2);border:1px solid var(--border-md);border-radius:3px;overflow:hidden;position:relative}
+.form-shell::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--acid),transparent)}
+.form-head{padding:26px 26px 22px;border-bottom:1px solid var(--border)}
+.ftag{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--acid);margin-bottom:7px;display:block}
+.ftitle{font-family:"Bebas Neue",sans-serif;font-size:1.65rem;letter-spacing:.03em;color:var(--white);line-height:1.05;margin-bottom:5px}
+.fsub{font-size:.82rem;color:var(--body);line-height:1.55}
+.form-body{padding:18px 26px 26px}
+.field-stack{display:flex;flex-direction:column;gap:13px;margin-bottom:16px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.field input,.field select{background:var(--black-3);border:1px solid var(--border-md);border-radius:2px;padding:11px 12px;color:var(--white);font-family:"DM Sans",sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;width:100%;-webkit-appearance:none;appearance:none}
+.field input::placeholder{color:rgba(245,243,239,.18)}
+.field input:focus,.field select:focus{border-color:var(--acid)}
+.field select option{background:var(--black-3);color:var(--white)}
+.sel{position:relative}
+.sel::after{content:"";position:absolute;right:12px;top:50%;transform:translateY(-50%) rotate(45deg);width:5px;height:5px;border-right:1px solid var(--dim);border-bottom:1px solid var(--dim);pointer-events:none;margin-top:1px}
+.sub-btn{width:100%;background:var(--acid);color:var(--black);border:none;border-radius:2px;padding:15px;font-family:"DM Sans",sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:opacity .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:9px}
+.sub-btn:hover{opacity:.88;transform:translateY(-1px)}
+.fine{font-size:.63rem;color:rgba(245,243,239,.26);text-align:center;margin-top:11px;line-height:1.6}
+.fine a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.success{display:none;padding:32px;text-align:center}
+.s-icon{width:46px;height:46px;border:1px solid var(--acid);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--acid);font-size:1.1rem}
+.s-h{font-family:"Bebas Neue",sans-serif;font-size:1.7rem;letter-spacing:.04em;color:var(--white);margin-bottom:7px}
+.s-p{font-size:.86rem;color:var(--body);line-height:1.68}
+
+/* FAQ */
+.faq-wrap{max-width:700px}
+.faq-list{margin-top:44px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-btn{padding:18px 0;font-size:.94rem;font-weight:600;color:var(--white);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;transition:color .2s;user-select:none;background:none;border:none;width:100%;text-align:left;font-family:"DM Sans",sans-serif}
+.faq-btn:hover{color:var(--acid)}
+.faq-ico{width:19px;height:19px;border:1px solid var(--border-md);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s,transform .3s;position:relative}
+.faq-ico::after{content:"";display:block;width:7px;height:1px;background:var(--white)}
+.faq-ico::before{content:"";width:1px;height:7px;background:var(--white);position:absolute;transition:opacity .3s}
+.faq-item.open .faq-ico{border-color:var(--acid);transform:rotate(45deg)}
+.faq-btn:hover .faq-ico{border-color:var(--acid)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.faq-item.open .faq-ans{max-height:250px}
+.faq-ans-inner{padding:3px 0 20px;font-size:.88rem;line-height:1.82;color:var(--body);max-width:600px}
+
+/* CLOSING */
+.close-sec{padding:110px 52px;text-align:center;position:relative;overflow:hidden}
+.close-sec::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;background:radial-gradient(circle,var(--acid-glow) 0%,transparent 65%);pointer-events:none}
+.close-eyebrow{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px}
+.close-line{width:32px;height:1px;background:var(--acid)}
+.close-tag{font-size:.63rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--acid)}
+.close-h{font-family:"Bebas Neue",sans-serif;font-size:clamp(3rem,5.8vw,6rem);letter-spacing:.02em;line-height:.96;color:var(--white);margin-bottom:18px}
+.close-h .ac{color:var(--acid)}.close-h .dm{color:var(--dim)}
+.close-sub{font-size:1rem;color:var(--body);max-width:420px;margin:0 auto 36px;line-height:1.72}
+.close-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-outline{display:inline-flex;align-items:center;gap:12px;background:transparent;color:var(--dim);text-decoration:none;font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:16px 28px;border-radius:2px;border:1px solid var(--border-md);transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--dim);color:var(--white)}
+
+/* FOOTER */
+footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px 52px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.footer-brand{font-family:"Bebas Neue",sans-serif;font-size:1.05rem;letter-spacing:.06em;color:var(--dim)}
+.footer-brand span{color:var(--acid)}
+.footer-legal{font-size:.63rem;color:rgba(245,243,239,.22);max-width:560px;line-height:1.65;text-align:right}
+.footer-legal a{color:inherit;text-underline-offset:3px}
+
+/* REVEALS */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .nav{padding:14px 28px}
+  .hero-content{padding:110px 28px 110px;max-width:100%}
+  .hero-bg-frank{width:44%;opacity:.7}
+  .two-col{grid-template-columns:1fr;gap:22px;margin-bottom:44px}
+  .form-grid{grid-template-columns:1fr;gap:44px}
+  .frank-bar-inner{padding:36px 28px;grid-template-columns:1fr;gap:22px;text-align:center}
+  .frank-char{margin:0 auto}
+  .sec,.sec-dark,.form-sec,.close-sec{padding:70px 28px}
+}
+@media(max-width:900px){
+  .prob-grid,.t-grid{grid-template-columns:1fr}
+  .rules-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .hero-bg-frank{width:38%;opacity:.5}
+}
+@media(max-width:640px){
+  .nav{padding:13px 16px}.nav-phone .nav-phone-dot{display:none}
+  .hero-content{padding:86px 16px 105px}
+  .hero-bg-frank{display:none}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-call{justify-content:center}
+  .hero-trust{gap:14px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .rules-grid{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+  .close-btns{flex-direction:column;align-items:stretch}
+  .btn-outline,.btn-primary{justify-content:center}
+  footer{flex-direction:column;text-align:center;padding:18px 16px}
+  .footer-legal{text-align:center}
+  .tbl{font-size:.76rem}
+  .tbl td,.tbl th{padding:10px 9px}
+  .sec,.sec-dark,.form-sec,.close-sec{padding:56px 16px}
+  .frank-bar-inner{padding:32px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="nav-brand">
+    <!-- Frank logo mark: stylized F in acid green circle -->
+    <svg class="nav-logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="17" fill="#080808" stroke="#C8F562" stroke-width="1.5"/>
+      <text x="18" y="24" font-family="'Bebas Neue', sans-serif" font-size="18" fill="#C8F562" text-anchor="middle" letter-spacing="1">F</text>
+    </svg>
+    <div class="nav-name">FRANK <span>COVER</span></div>
+    <div class="nav-def"><em>frank</em> /fraNGk/ &mdash; open, honest &amp; direct</div>
+  </div>
+  <div class="nav-right">
+    <a href="tel:+14035366897" class="nav-phone">
+      <div class="nav-phone-dot"></div>
+      (403) 536-6897
+    </a>
+    <a href="#quote" class="nav-cta">Ask Frank</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-bg-frank" role="img" aria-label="Frank, independent insurance advisor"></div>
+  <div class="hero-content">
+    <div class="hero-pill">
+      <div class="hero-pill-dot"></div>
+      <span class="hero-pill-text" id="pillText"><em>frank</em> &nbsp;/fraNGk/ &nbsp;&mdash;&nbsp; open, honest, and direct in speech or writing</span>
+    </div>
+    <h1 class="hero-h1" id="heroH1">
+      LOOKING FOR<br>
+      <span class="acid" id="heroAccent">LIFE INSURANCE</span><br>
+      <span class="sub" id="heroSub">IN ALBERTA? ASK FRANK FIRST.</span>
+    </h1>
+    <div class="hero-divider"></div>
+    <div class="hero-def">
+      <span class="hero-def-word">frank</span>
+      <span class="hero-def-pron">/fraNGk/</span>
+      <span class="hero-def-sep">&mdash;</span>
+      <span class="hero-def-meaning">open, honest, and direct in speech or writing, especially when dealing with unpalatable matters.</span>
+    </div>
+    <p class="hero-body" id="heroBody">
+      Most Albertans get quoted by one company. Frank runs your profile through <strong>6 competing carriers</strong> and tells you what you're actually getting &mdash; including what your bank hoped you'd never ask.
+    </p>
+    <div class="hero-honest">
+      <div class="honest-bar"></div>
+      <span class="honest-text">If your current coverage is solid, Frank will tell you that &mdash; and you keep it.</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#quote" class="btn-primary">Get Frank's Free Review <div class="arr"></div></a>
+      <a href="tel:+14035366897" class="btn-call"><div class="btn-call-dot"></div> Call (403) 536-6897</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-check">&#10003;</div>6 Carriers Compared</div>
+      <div class="trust-item"><div class="trust-check">&#10003;</div>15-Minute Review</div>
+      <div class="trust-item"><div class="trust-check">&#10003;</div>Zero Cost to You</div>
+      <div class="trust-item"><div class="trust-check">&#10003;</div>Licensed in Alberta</div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-n"><span class="count" data-target="6">0</span></div><div class="hstat-l">Competing Carriers</div></div>
+    <div class="hstat"><div class="hstat-n"><span class="count" data-target="15">0</span><span class="u">min</span></div><div class="hstat-l">Average Review</div></div>
+    <div class="hstat"><div class="hstat-n">$<span class="count" data-target="0">0</span></div><div class="hstat-l">Cost to You</div></div>
+    <div class="hstat"><div class="hstat-n"><span class="count" data-target="20">0</span><span class="u">+yr</span></div><div class="hstat-l">Experience</div></div>
+  </div>
+</section>
+
+<!-- FRANK SAYS -->
+<div class="frank-bar reveal">
+  <div class="frank-bar-inner">
+    <div class="frank-char">
+      <img src="/images/frank-avatar.jpg" class="frank-char-img" alt="Frank">
+      <span class="frank-char-badge">Frank</span>
+    </div>
+    <div>
+      <div class="frank-bar-quote">"YOUR BANK DOESN'T WORK FOR YOU. I DO."</div>
+      <p class="frank-bar-sub">Independent advisor. No bank affiliation. No proprietary products. No quotas. Contracted with 6 carriers &mdash; the only measure of success is whether the coverage actually serves your family.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="mq">
+  <div class="mq-track">
+    <div class="mq-item"><span class="mq-word">Canada Life</span><div class="mq-dot"></div><span class="mq-word">RBC Insurance</span><div class="mq-dot"></div><span class="mq-word">Empire Life</span><div class="mq-dot"></div><span class="mq-word">Industrial Alliance</span><div class="mq-dot"></div><span class="mq-word">Desjardins</span><div class="mq-dot"></div><span class="mq-word">Assumption Life</span><div class="mq-dot"></div><span class="mq-word">Frank Doesn't Work For Your Bank</span><div class="mq-dot"></div><span class="mq-word">Licensed Alberta Advisor</span><div class="mq-dot"></div><span class="mq-word">15-Minute Review</span><div class="mq-dot"></div><span class="mq-word">Zero Cost</span><div class="mq-dot"></div></div>
+    <div class="mq-item" aria-hidden="true"><span class="mq-word">Canada Life</span><div class="mq-dot"></div><span class="mq-word">RBC Insurance</span><div class="mq-dot"></div><span class="mq-word">Empire Life</span><div class="mq-dot"></div><span class="mq-word">Industrial Alliance</span><div class="mq-dot"></div><span class="mq-word">Desjardins</span><div class="mq-dot"></div><span class="mq-word">Assumption Life</span><div class="mq-dot"></div><span class="mq-word">Frank Doesn't Work For Your Bank</span><div class="mq-dot"></div><span class="mq-word">Licensed Alberta Advisor</span><div class="mq-dot"></div><span class="mq-word">15-Minute Review</span><div class="mq-dot"></div><span class="mq-word">Zero Cost</span><div class="mq-dot"></div></div>
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<section class="sec">
+  <div class="wrap">
+    <div class="two-col reveal">
+      <div>
+        <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">What Frank Found</span></div>
+        <h2 class="s-h">What your bank<br>never <span class="d">volunteered.</span></h2>
+      </div>
+      <p class="s-p">Bank and group coverage is designed around the lender's convenience, not yours. <strong>Three things happen to most Albertans' coverage that they only discover at the worst possible moment.</strong></p>
+    </div>
+    <div class="prob-grid reveal">
+      <div class="p-card">
+        <div class="p-n">01</div>
+        <h3 class="p-h">Your benefit shrinks. Your premium doesn't.</h3>
+        <p class="p-b">Bank mortgage insurance ties coverage to your outstanding balance. As you pay down your mortgage, the insured amount quietly drops &mdash; but your premium stays identical. You're paying the same for less, every month.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-n">02</div>
+        <h3 class="p-h">The health check happens at claim time &mdash; not approval.</h3>
+        <p class="p-b">Most bank policies approve you without full medical underwriting. The real scrutiny happens when your family files a claim. Post-claim denial is documented across the industry. You may not be as covered as you believe.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-n">03</div>
+        <h3 class="p-h">The bank is the beneficiary. Not your family.</h3>
+        <p class="p-b">Bank creditor insurance pays the lender directly. Your family receives nothing beyond a cleared mortgage &mdash; no cash for income replacement, no flexibility, no choice about how the money is used.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FRANK'S 3 RULES -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">How Frank Works</span></div>
+      <h2 class="s-h">3 rules.<br><span class="d">Non-negotiable.</span></h2>
+    </div>
+    <div class="rules-grid reveal">
+      <div class="rule" data-n="01">
+        <span class="rule-tag">Rule 01</span>
+        <div class="rule-h">No bank. No quotas. Ever.</div>
+        <p class="rule-p">Contracted with 6 independent carriers &mdash; no bank affiliation, no captive arrangement. The recommendation is always what's right for you, because that's the only model that works long-term.</p>
+      </div>
+      <div class="rule" data-n="02">
+        <span class="rule-tag">Rule 02</span>
+        <div class="rule-h">If you're fine, Frank says so.</div>
+        <p class="rule-p">This is a review, not a sales call. If your current policy genuinely serves your family, you'll hear that directly and keep it. A wrong recommendation doesn't benefit anyone, including Frank.</p>
+      </div>
+      <div class="rule" data-n="03">
+        <span class="rule-tag">Rule 03</span>
+        <div class="rule-h">Free. Always. No exceptions.</div>
+        <p class="rule-p">Frank is compensated by the carrier only on placed policies. If you don't switch, he earns nothing. That structural alignment is exactly why the advice is straight. Pressure tactics don't pay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="two-col reveal">
+      <div>
+        <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">Side by Side</span></div>
+        <h2 class="s-h">The comparison<br>your bank hopes<br><span class="d">you never see.</span></h2>
+      </div>
+      <p class="s-p">Same category. Completely different structure. <strong>This is what Frank consistently finds when comparing bank and creditor policies against individually-owned coverage.</strong></p>
+    </div>
+    <table class="tbl reveal">
+      <thead><tr><th>Feature</th><th>Bank / Group Policy</th><th>Frank Cover (Independent)</th></tr></thead>
+      <tbody>
+        <tr><td>Beneficiary</td><td class="bad">The bank &mdash; mortgage cleared</td><td class="good">Your family &mdash; cash, any use</td></tr>
+        <tr><td>Coverage over time</td><td class="bad">Decreases with mortgage balance</td><td class="good">Fixed at face value you chose</td></tr>
+        <tr><td>Premiums over time</td><td class="bad">Unchanged or increasing</td><td class="good">Level for the term you choose</td></tr>
+        <tr><td>Medical underwriting</td><td class="bad">Happens at claim &mdash; post-approval</td><td class="good">Done upfront &mdash; no claim surprises</td></tr>
+        <tr><td>Portability</td><td class="bad">Tied to lender &mdash; lost if you switch</td><td class="good">Follows you regardless of lender</td></tr>
+        <tr><td>Job / employer change</td><td class="bad">Group coverage disappears</td><td class="good">Policy is yours, unaffected</td></tr>
+        <tr><td>Carrier options</td><td class="bad">One option &mdash; take it or leave it</td><td class="good">6 carriers competing for your rate</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="two-col reveal">
+      <div>
+        <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">What They Found Out</span></div>
+        <h2 class="s-h">Real Albertans.<br><span class="d">Real results.</span></h2>
+      </div>
+      <p class="s-p"><strong>Frank doesn't ask for reviews. He asks for referrals.</strong> Here's what clients typically find when they finally ask the questions their bank hoped they wouldn't.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-card reveal">
+        <div><div class="t-qq">"</div><p class="t-txt">I had no idea my TD coverage was declining every year while my premium held steady. Switched to individually-owned &mdash; more coverage than I started with, for less per month.</p></div>
+        <div class="t-foot"><div><span class="t-name">Mike T.</span><span class="t-det">Calgary &bull; Switched from TD</span></div><div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+      </div>
+      <div class="t-card reveal" style="transition-delay:.1s">
+        <div><div class="t-qq">"</div><p class="t-txt">The whole thing took 20 minutes. Frank ran the numbers across all the carriers and I ended up saving $41 a month compared to what I was paying RBC. Should have done this years ago.</p></div>
+        <div class="t-foot"><div><span class="t-name">Sandra K.</span><span class="t-det">Red Deer &bull; Switched from RBC</span></div><div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+      </div>
+      <div class="t-card reveal" style="transition-delay:.2s">
+        <div><div class="t-qq">"</div><p class="t-txt">We'd been with Scotiabank for 11 years assuming we were fine. Our coverage had been declining the entire time. Genuinely grateful someone finally explained how this actually works.</p></div>
+        <div class="t-foot"><div><span class="t-name">Dave &amp; Carol M.</span><span class="t-det">Lethbridge &bull; Switched from Scotiabank</span></div><div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-sec" id="quote">
+  <div class="form-grid">
+    <div class="reveal">
+      <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">Free &bull; No Obligation &bull; Alberta Only</span></div>
+      <div class="s-h" style="margin-bottom:20px">15 MINUTES.<br>6 CARRIERS.<br><span class="ac" style="color:var(--acid)">ONE HONEST</span><br><span class="d" style="color:var(--dim)">ANSWER.</span></div>
+      <div class="form-promise">
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Frank reviews your profile personally</strong> and calls back within 2 business hours at your preferred time. Not a call centre. Not a script.</p></div>
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Both options available:</strong> submit the form or call (403) 536-6897 directly. Frank answers.</p></div>
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>If what you have is fine</strong>, you'll hear that directly. Frank earns nothing if you don't switch &mdash; that's why the answer is always straight.</p></div>
+        <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Age moves pricing faster than most expect.</strong> For many applicants, a Term 20 quote on $500k can jump materially between late 30s and early 40s. Final premiums depend on age, health, smoker status, and carrier underwriting.</p></div>
+      </div>
+    </div>
+    <div class="form-shell reveal" style="transition-delay:.15s">
+      <div class="form-head">
+        <span class="ftag">Ask Frank &mdash; Free Review</span>
+        <div class="ftitle">Get Your 6-Carrier<br>Comparison</div>
+        <p class="fsub">Gavin reviews your profile and calls you back personally.</p>
+      </div>
+      <div class="form-body">
+        <form id="mainForm" onsubmit="handleSubmit(event)">
+          <div class="field-stack">
+            <div class="duo">
+              <div class="field"><label for="ff">First Name</label><input id="ff" type="text" name="first_name" placeholder="First name" autocomplete="given-name" required></div>
+              <div class="field"><label for="fl">Last Name</label><input id="fl" type="text" name="last_name" placeholder="Last name" autocomplete="family-name" required></div>
+            </div>
+            <div class="field"><label for="fp">Best Phone Number</label><input id="fp" type="tel" name="phone" placeholder="(403) 000-0000" autocomplete="tel" required></div>
+            <div class="field">
+              <label for="fc">Coverage You're Exploring</label>
+              <div class="sel"><select id="fc" name="coverage_type" autocomplete="off" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Term Life Insurance</option>
+                <option>Whole Life Insurance</option>
+                <option>Mortgage Protection</option>
+                <option>Disability Insurance</option>
+                <option>Critical Illness Insurance</option>
+                <option>Not Sure &mdash; Exploring Options</option>
+              </select></div>
+            </div>
+            <div class="field">
+              <label for="ft">Best Time to Reach You</label>
+              <div class="sel"><select id="ft" name="call_time" autocomplete="off" required>
+                <option value="" disabled selected>Select a time</option>
+                <option>Morning (9am to 12pm)</option>
+                <option>Afternoon (12pm to 5pm)</option>
+                <option>Evening (5pm to 8pm)</option>
+                <option>Anytime works</option>
+              </select></div>
+            </div>
+          </div>
+          <button type="submit" class="sub-btn">Ask Frank &mdash; Free Review <div class="arr"></div></button>
+        </form>
+        <div class="success" id="formSuccess">
+          <div class="s-icon">&#10003;</div>
+          <div class="s-h">Frank Got Your Message.</div>
+          <p class="s-p">Expect a direct call at your preferred time. No scripts, no pressure. Just an honest look at what you're actually covered for.</p>
+        </div>
+        <p class="fine">Private &amp; never shared. Licensed under the Insurance Act (RSA 2000, c I-3). <a href="/privacy">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-dark">
+  <div class="wrap">
+    <div class="faq-wrap">
+      <div class="reveal">
+        <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">Frank Answers</span></div>
+        <h2 class="s-h">Questions Frank<br><span class="d">hears every day.</span></h2>
+      </div>
+      <div class="faq-list reveal" style="transition-delay:.1s">
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">Is this actually free? What's the catch?<div class="faq-ico"></div></button>
+          <div class="faq-ans"><div class="faq-ans-inner">Completely free to you. Frank is compensated by the carrier only if you choose to place a policy. If you don't switch, he earns nothing. That's why the incentive is to be genuinely useful &mdash; wrong advice doesn't pay.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">I have a pre-existing condition. Will I qualify?<div class="faq-ico"></div></button>
+          <div class="faq-ans"><div class="faq-ans-inner">Most Albertans qualify for at least one carrier even with pre-existing conditions. Each of the 6 carriers uses different underwriting guidelines &mdash; some specialize in cases others decline. The only way to know is to run your profile through all of them.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">How quickly can I get covered if I move forward?<div class="faq-ico"></div></button>
+          <div class="faq-ans"><div class="faq-ans-inner">Most straightforward applications receive a decision within 24 to 48 hours. The process is timed so your new policy is active before any existing coverage is cancelled &mdash; there is no gap.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">I have employer group coverage. Do I still need individual?<div class="faq-ico"></div></button>
+          <div class="faq-ans"><div class="faq-ans-inner">Group coverage disappears when you leave, get laid off, or when the company changes its plan. Individual coverage follows you regardless of employer. Most advisors recommend both &mdash; group for convenience, individual as the foundation that never disappears.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">What if Frank says my current coverage is fine?<div class="faq-ico"></div></button>
+          <div class="faq-ans"><div class="faq-ans-inner">Then the call takes 10 minutes and you leave knowing exactly where you stand. That's a valid outcome and a common one. Frank's job is accurate information, not manufacturing a reason to switch.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="close-sec">
+  <div class="close-eyebrow"><div class="close-line"></div><span class="close-tag">Free &bull; 15 Minutes &bull; No Obligation</span><div class="close-line"></div></div>
+  <h2 class="close-h reveal">
+    FRANK DOESN'T<br>WORK FOR <span class="ac">YOUR BANK.</span><br><span class="dm">He works for you.</span>
+  </h2>
+  <p class="close-sub reveal" style="transition-delay:.1s">No contact with your bank. No pressure. No scripts. If your current coverage is the right call, you'll hear that. If it isn't, you'll finally know.</p>
+  <div class="close-btns reveal" style="transition-delay:.18s">
+    <a href="#quote" class="btn-primary">Get Frank's Free Review <div class="arr"></div></a>
+    <a href="tel:+14035366897" class="btn-outline"><div class="btn-call-dot" style="background:var(--acid);width:7px;height:7px;border-radius:50%;flex-shrink:0"></div> Call (403) 536-6897</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">FRANK <span>COVER</span><div style="font-size:.55rem;color:rgba(245,243,239,.2);font-style:italic;font-weight:400;letter-spacing:.02em;margin-top:3px">frank /fraNGk/ — open, honest &amp; direct</div></div>
+  <p class="footer-legal">Gavin Dyer, Independent Life &amp; Disability Advisor &middot; Calgary, AB &middot; AIC Life Licence M-124004-SP-2025 &middot; A&amp;S Licence Q-124004-SP-2025<br>Licensed in Alberta under the Insurance Act (RSA 2000, c I-3). General information only &mdash; not insurance advice. Final premiums depend on age, health, smoker status, and carrier underwriting. &middot; <a href="/privacy">Privacy Policy</a></p>
+</footer>
+
+<script>
+// ── Dynamic headline by URL param ──────────────────────────────────────────
+const HEADLINES = {
+  life:       { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"LOOKING FOR", accent:"LIFE INSURANCE", sub:"IN ALBERTA? ASK FRANK FIRST." },
+  quote:      { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"WANT A REAL", accent:"LIFE INSURANCE QUOTE?", sub:"FRANK RUNS ALL 6 CARRIERS." },
+  broker:     { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"LOOKING FOR A", accent:"BROKER IN CALGARY?", sub:"FRANK WORKS FOR YOU. NOT A BANK." },
+  mortgage:   { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"BANK MORTGAGE", accent:"INSURANCE?", sub:"FRANK'LL TELL YOU WHAT YOU'RE MISSING." },
+  whole:      { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"EXPLORING", accent:"WHOLE LIFE INSURANCE?", sub:"FRANK COMPARES ALL 6 ALBERTA CARRIERS." },
+  critical:   { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"NEED CRITICAL", accent:"ILLNESS COVERAGE?", sub:"FRANK FINDS THE RIGHT FIT. 6 CARRIERS." },
+  disability: { pill:"frank /fraNGk/ — open, honest, and direct in speech or writing", h1:"PROTECTING YOUR", accent:"INCOME IF YOU CAN'T WORK?", sub:"FRANK KNOWS ALBERTA DISABILITY OPTIONS." },
+};
+(function(){
+  const p = new URLSearchParams(window.location.search);
+  const type = p.get("type") || "life";
+  const h = HEADLINES[type] || HEADLINES.life;
+  const el = {
+    pill: document.getElementById("pillText"),
+    h1:   document.getElementById("heroH1"),
+    acc:  document.getElementById("heroAccent"),
+    sub:  document.getElementById("heroSub"),
+  };
+  if(el.pill) el.pill.textContent = h.pill;
+  if(el.acc)  el.acc.textContent  = h.accent;
+  if(el.sub)  el.sub.textContent  = h.sub;
+  // Update h1 first text node
+  if(el.h1){
+    const nodes = el.h1.childNodes;
+    if(nodes[0] && nodes[0].nodeType===3) nodes[0].textContent = h.h1 + ' ';
+  }
+  // Update page title for SEO
+  document.title = h.accent.charAt(0)+h.accent.slice(1).toLowerCase() + " — Frank Cover Alberta";
+})();
+
+// ── Nav scroll ────────────────────────────────────────────────────────────
+const nav=document.getElementById("mainNav");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40),{passive:true});
+
+// ── Reveals (single observer) ─────────────────────────────────────────────
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")}),{threshold:.1});
+document.querySelectorAll(".reveal").forEach(el=>ro.observe(el));
+
+// ── Counters (single observer) ────────────────────────────────────────────
+const co=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting&&!x.target.dataset.done){
+    x.target.dataset.done="1";
+    const t=parseInt(x.target.dataset.target);
+    if(t===0){x.target.textContent="0";return}
+    const dur=1200,s=performance.now();
+    (function tick(now){const p=Math.min((now-s)/dur,1),ez=1-Math.pow(1-p,3);x.target.textContent=Math.round(ez*t);if(p<1)requestAnimationFrame(tick)})(s);
+  }
+}),{threshold:.5});
+document.querySelectorAll(".count").forEach(el=>co.observe(el));
+
+// ── FAQ ───────────────────────────────────────────────────────────────────
+function toggleFaq(btn){
+  const item=btn.closest(".faq-item"),open=item.classList.contains("open");
+  document.querySelectorAll(".faq-item.open").forEach(i=>{i.classList.remove("open");i.querySelector(".faq-btn").setAttribute("aria-expanded","false")});
+  if(!open){item.classList.add("open");btn.setAttribute("aria-expanded","true")}
+}
+
+// ── Form submit ───────────────────────────────────────────────────────────
+async function handleSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector(".sub-btn");
+  btn.textContent="Sending…";btn.disabled=true;
+  const data=Object.fromEntries(new FormData(e.target));
+  data.source_type=new URLSearchParams(window.location.search).get("type")||"life";
+  // await fetch("YOUR_ZAPIER_WEBHOOK_URL",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+  if(typeof gtag!=="undefined")gtag("event","generate_lead",{event_category:"form",event_label:"frank_"+data.source_type});
+  document.getElementById("mainForm").style.display="none";
+  document.getElementById("formSuccess").style.display="block";
+}
+
+// ── Smooth scroll ─────────────────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+</script>
+</body>
+</html>
