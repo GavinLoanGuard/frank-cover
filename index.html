@@ -120,7 +120,7 @@ body::after{content:"";position:fixed;inset:0;background-image:url("data:image/s
 .p-card:hover{background:var(--black-3)}
 .p-card::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--acid);transform:scaleX(0);transform-origin:left;transition:transform .35s}
 .p-card:hover::after{transform:scaleX(1)}
-.p-n{font-family:"Bebas Neue",sans-serif;font-size:3.5rem;letter-spacing:.04em;color:var(--faint);line-height:1;margin-bottom:14px}
+.p-n{font-family:"Bebas Neue",sans-serif;font-size:3.5rem;letter-spacing:.04em;color:rgba(200,245,98,.35);line-height:1;margin-bottom:14px}
 .p-h{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:9px;line-height:1.35}
 .p-b{font-size:.97rem;line-height:1.78;color:var(--body)}
 
@@ -128,7 +128,7 @@ body::after{content:"";position:fixed;inset:0;background-image:url("data:image/s
 .rules-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:44px}
 .rule{background:var(--black-3);border:1px solid var(--border);padding:30px;position:relative;overflow:hidden;transition:border-color .25s,background .25s}
 .rule:hover{background:var(--black-4);border-color:var(--border-md)}
-.rule::before{content:attr(data-n);font-family:"Bebas Neue",sans-serif;font-size:4.5rem;color:var(--faint);position:absolute;top:6px;right:14px;line-height:1;letter-spacing:.04em;pointer-events:none}
+.rule::before{content:attr(data-n);font-family:"Bebas Neue",sans-serif;font-size:4.5rem;color:rgba(200,245,98,.12);position:absolute;top:6px;right:14px;line-height:1;letter-spacing:.04em;pointer-events:none}
 .rule-tag{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--acid);margin-bottom:10px;display:block}
 .rule-h{font-family:"Bebas Neue",sans-serif;font-size:1.45rem;letter-spacing:.03em;color:var(--white);margin-bottom:7px;line-height:1.05}
 .rule-p{font-size:.95rem;line-height:1.75;color:var(--body)}
@@ -346,7 +346,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
       <span class="frank-char-badge">Frank</span>
     </div>
     <div>
-      <div class="frank-bar-quote">"YOUR BANK DOESN'T WORK FOR YOU. I DO."</div>
+      <div class="frank-bar-quote">"YOUR BANK DOESN'T WORK FOR YOU. WE DO."</div>
       <p class="frank-bar-sub">Independent advisor. No bank affiliation. No proprietary products. No quotas. Contracted with 6 carriers &mdash; the only measure of success is whether the coverage actually serves your family.</p>
     </div>
   </div>
@@ -411,7 +411,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
       <div class="rule" data-n="03">
         <span class="rule-tag">Rule 03</span>
         <div class="rule-h">Free. Always. No exceptions.</div>
-        <p class="rule-p">Frank is compensated by the carrier only on placed policies. If you don't switch, he earns nothing. That structural alignment is exactly why the advice is straight. Pressure tactics don't pay.</p>
+        <p class="rule-p">Frank is compensated by the carrier only on placed policies. If you don't switch, we earn nothing. That structural alignment is exactly why the advice is straight. Pressure tactics don't pay.</p>
       </div>
     </div>
   </div>
@@ -493,7 +493,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
         <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">What They Found Out</span></div>
         <h2 class="s-h">Real Albertans.<br><span class="d">Real results.</span></h2>
       </div>
-      <p class="s-p"><strong>Frank doesn't ask for reviews. He asks for referrals.</strong> Here's what clients typically find when they finally ask the questions their bank hoped they wouldn't.</p>
+      <p class="s-p"><strong>Frank doesn't ask for reviews. We ask for referrals.</strong> Here's what clients typically find when they finally ask the questions their bank hoped they wouldn't.</p>
     </div>
     <div class="t-grid">
       <div class="t-card reveal">
@@ -543,12 +543,24 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
               <label for="fc">Coverage You're Exploring</label>
               <div class="sel"><select id="fc" name="coverage_type" autocomplete="off" required>
                 <option value="" disabled selected>Select one</option>
-                <option>Term Life Insurance</option>
-                <option>Whole Life Insurance</option>
                 <option>Mortgage Protection</option>
+                <option>Term Life Insurance</option>
                 <option>Disability Insurance</option>
                 <option>Critical Illness Insurance</option>
+                <option>Whole Life / Permanent</option>
                 <option>Not Sure &mdash; Exploring Options</option>
+              </select></div>
+            </div>
+            <div class="field">
+              <label for="fa">Coverage Amount You Have in Mind</label>
+              <div class="sel"><select id="fa" name="coverage_amount" autocomplete="off" required>
+                <option value="" disabled selected>Select a range</option>
+                <option>Under $250,000</option>
+                <option>$250,000 &ndash; $500,000</option>
+                <option>$500,000 &ndash; $750,000</option>
+                <option>$750,000 &ndash; $1,000,000</option>
+                <option>Over $1,000,000</option>
+                <option>Not sure &mdash; need a recommendation</option>
               </select></div>
             </div>
             <div class="field">
@@ -586,7 +598,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
       <div class="faq-list reveal" style="transition-delay:.1s">
         <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">Is this actually free? What's the catch?<div class="faq-ico"></div></button>
-          <div class="faq-ans"><div class="faq-ans-inner">Completely free to you. Frank is compensated by the carrier only if you choose to place a policy. If you don't switch, he earns nothing. That's why the incentive is to be genuinely useful &mdash; wrong advice doesn't pay.</div></div>
+          <div class="faq-ans"><div class="faq-ans-inner">Completely free to you. Frank is compensated by the carrier only if you choose to place a policy. If you don't switch, we earn nothing. That's why the incentive is to be genuinely useful &mdash; wrong advice doesn't pay.</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false">I have a pre-existing condition. Will I qualify?<div class="faq-ico"></div></button>
@@ -613,7 +625,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
 <section class="close-sec">
   <div class="close-eyebrow"><div class="close-line"></div><span class="close-tag">Free &bull; 15 Minutes &bull; No Obligation</span><div class="close-line"></div></div>
   <h2 class="close-h reveal">
-    FRANK DOESN'T<br>WORK FOR <span class="ac">YOUR BANK.</span><br><span class="dm">He works for you.</span>
+    FRANK DOESN'T<br>WORK FOR <span class="ac">YOUR BANK.</span><br><span class="dm">We work for you.</span>
   </h2>
   <p class="close-sub reveal" style="transition-delay:.1s">No contact with your bank. No pressure. No scripts. If your current coverage is the right call, you'll hear that. If it isn't, you'll finally know.</p>
   <div class="close-btns reveal" style="transition-delay:.18s">
@@ -625,7 +637,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">FRANK <span>COVER</span><div style="font-size:.55rem;color:rgba(245,243,239,.2);font-style:italic;font-weight:400;letter-spacing:.02em;margin-top:3px">frank /fraNGk/ — open, honest &amp; direct</div></div>
-  <p class="footer-legal">Gavin Dyer, Independent Life &amp; Disability Advisor &middot; Calgary, AB &middot; AIC Life Licence M-124004-SP-2025 &middot; A&amp;S Licence Q-124004-SP-2025<br>Licensed in Alberta under the Insurance Act (RSA 2000, c I-3). General information only &mdash; not insurance advice. Final premiums depend on age, health, smoker status, and carrier underwriting. &middot; <a href="/privacy">Privacy Policy</a></p>
+  <p class="footer-legal">Gavin Dyer, Independent Life &amp; Disability Advisor &middot; Calgary, AB &middot; AIC Life Licence M-124004-SP-2025 &middot; A&amp;S Licence Q-124004-SP-2025<br>Licensed in Alberta under the Insurance Act (RSA 2000, c I-3). General information only &mdash; not insurance advice. Final premiums depend on age, health, smoker status, and carrier underwriting. &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms &amp; Conditions</a></p>
 </footer>
 
 <script>
@@ -693,12 +705,48 @@ async function handleSubmit(e){
   e.preventDefault();
   const btn=e.target.querySelector(".sub-btn");
   btn.textContent="Sending…";btn.disabled=true;
+
+  const params=new URLSearchParams(window.location.search);
   const data=Object.fromEntries(new FormData(e.target));
-  data.source_type=new URLSearchParams(window.location.search).get("type")||"life";
-  // await fetch("YOUR_ZAPIER_WEBHOOK_URL",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
-  if(typeof gtag!=="undefined")gtag("event","generate_lead",{event_category:"form",event_label:"frank_"+data.source_type});
-  document.getElementById("mainForm").style.display="none";
-  document.getElementById("formSuccess").style.display="block";
+
+  const payload={
+    access_key:"3a48208d-036e-46d1-8f7e-1619777408fe",
+    subject:"New Frank Cover Lead — "+( data.coverage_type||"General Inquiry"),
+    from_name:"Frank Cover",
+    first_name:data.first_name,
+    last_name:data.last_name,
+    phone:data.phone,
+    coverage_type:data.coverage_type||"Not specified",
+    coverage_amount:data.coverage_amount||"Not specified",
+    call_time:data.call_time||"Not specified",
+    utm_source:params.get("utm_source")||"direct",
+    utm_medium:params.get("utm_medium")||"",
+    utm_campaign:params.get("utm_campaign")||"",
+    utm_keyword:params.get("utm_keyword")||params.get("keyword")||"",
+    landing_page:window.location.href
+  };
+
+  try{
+    const res=await fetch("https://api.web3forms.com/submit",{
+      method:"POST",
+      headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify(payload)
+    });
+    const result=await res.json();
+    if(result.success){
+      if(typeof gtag!=="undefined")gtag("event","generate_lead",{event_category:"form",event_label:"frank_cover",value:1});
+      document.getElementById("mainForm").style.display="none";
+      document.getElementById("formSuccess").style.display="block";
+    } else {
+      btn.disabled=false;
+      btn.textContent="Ask Frank — Free Review";
+      alert("Something went wrong. Please call (403) 536-6897 directly.");
+    }
+  } catch(err){
+    btn.disabled=false;
+    btn.textContent="Ask Frank — Free Review";
+    alert("Something went wrong. Please call (403) 536-6897 directly.");
+  }
 }
 
 // ── Smooth scroll ─────────────────────────────────────────────────────────
