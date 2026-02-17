@@ -919,7 +919,10 @@ async function handleSubmit(e){
     });
     const result=await res.json();
     if(result.success){
-      if(typeof gtag!=="undefined")gtag("event","generate_lead",{event_category:"form",event_label:"frank_cover",value:1});
+      if(typeof gtag!=="undefined"){
+        gtag("event","generate_lead",{event_category:"form",event_label:"frank_cover",value:1});
+        gtag("event","conversion",{"send_to":"AW-17864219157/Yt6rCIWFtPobEJW0qcZC","value":150.0,"currency":"CAD"});
+      }
       document.getElementById("mainForm").style.display="none";
       document.getElementById("formSuccess").style.display="block";
     } else {
