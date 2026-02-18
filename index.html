@@ -46,6 +46,8 @@ body::after{content:"";position:fixed;inset:0;background-image:url("data:image/s
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
 .nav-cta{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--acid);color:var(--black);padding:10px 18px;border-radius:2px;text-decoration:none;transition:opacity .2s,transform .15s}
 .nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+.nav-hsa{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);text-decoration:none;padding:10px 4px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.nav-hsa:hover{color:var(--acid);border-bottom-color:var(--acid)}
 
 /* HERO */
 .hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
@@ -260,6 +262,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
 }
 @media(max-width:640px){
   .nav{padding:13px 16px}.nav-phone .nav-phone-dot{display:none}
+  .nav-hsa{display:none}
   .hero-content{padding:86px 16px 105px}
   .hero-bg-frank{display:none}
   .hero-actions{flex-direction:column;align-items:stretch}
@@ -297,6 +300,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
       <div class="nav-phone-dot"></div>
       (403) 536-6897
     </a>
+    <a href="/hsa" class="nav-hsa">HSA for Business</a>
     <a href="#quote" class="nav-cta">Ask Frank</a>
   </div>
 </nav>
@@ -716,7 +720,7 @@ footer{background:var(--black-2);border-top:1px solid var(--border);padding:22px
 <!-- FOOTER -->
 <footer>
   <div class="footer-brand">FRANK <span>COVER</span><div style="font-size:.55rem;color:rgba(245,243,239,.2);font-style:italic;font-weight:400;letter-spacing:.02em;margin-top:3px">frank /fraNGk/ — open, honest &amp; direct</div></div>
-  <p class="footer-legal">Gavin Dyer, Independent Life &amp; Disability Advisor &middot; Calgary, AB &middot; AIC Life Licence M-124004-SP-2025 &middot; A&amp;S Licence Q-124004-SP-2025<br>Licensed in Alberta under the Insurance Act (RSA 2000, c I-3). General information only &mdash; not insurance advice. Final premiums depend on age, health, smoker status, and carrier underwriting. &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms &amp; Conditions</a></p>
+  <p class="footer-legal">Gavin Dyer, Independent Life &amp; Disability Advisor &middot; Calgary, AB &middot; AIC Life Licence M-124004-SP-2025 &middot; A&amp;S Licence Q-124004-SP-2025<br>Licensed in Alberta under the Insurance Act (RSA 2000, c I-3). General information only &mdash; not insurance advice. Final premiums depend on age, health, smoker status, and carrier underwriting. &middot; <a href="/hsa">HSA for Business</a> &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms &amp; Conditions</a></p>
 </footer>
 
 <script>
