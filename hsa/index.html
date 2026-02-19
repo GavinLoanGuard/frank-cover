@@ -76,9 +76,11 @@ body::after{content:"";position:fixed;inset:0;background-image:url("data:image/s
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:16px 52px;display:flex;align-items:center;justify-content:space-between;transition:background .3s,border-color .3s}
 .nav.scrolled{background:rgba(8,8,8,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:36px;height:36px;flex-shrink:0}
 .nav-name{font-family:"Bebas Neue",sans-serif;font-size:1.45rem;letter-spacing:.06em;color:var(--white);line-height:1}
 .nav-name span{color:var(--acid)}
+.nav-def{font-size:.58rem;color:var(--dim);letter-spacing:.03em;font-style:italic;margin-top:2px;line-height:1}
 .nav-right{display:flex;align-items:center;gap:18px}
 .nav-phone{font-size:.88rem;font-weight:600;letter-spacing:.04em;color:var(--dim);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:7px}
 .nav-phone:hover{color:var(--white)}
@@ -290,7 +292,7 @@ footer{border-top:1px solid var(--border);padding:32px 52px;display:flex;align-i
 
 /* RESPONSIVE */
 @media(max-width:960px){
-  .nav{padding:14px 24px}
+  .nav{padding:14px 28px}
   .hero-content{padding:120px 24px 160px}
   .hero-stats{grid-template-columns:repeat(2,1fr)}
   .frank-bar-inner{padding:32px 24px;grid-template-columns:1fr;gap:20px}
@@ -310,18 +312,31 @@ footer{border-top:1px solid var(--border);padding:32px 52px;display:flex;align-i
   .tbl td,.tbl thead th{padding:10px 12px}
   footer{flex-direction:column;text-align:center}
 }
+@media(max-width:640px){
+  .nav{padding:13px 16px}
+  .nav-phone-dot{display:none}
+  .nav-def{display:none}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav" id="mainNav">
-  <a href="/" class="nav-brand">
-    <span class="nav-name">Frank<span>.</span>Cover</span>
-  </a>
+  <div class="nav-brand">
+    <svg class="nav-logo" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="17" fill="#080808" stroke="#C8F562" stroke-width="1.5"/>
+      <text x="18" y="24" font-family="'Bebas Neue', sans-serif" font-size="18" fill="#C8F562" text-anchor="middle" letter-spacing="1">F</text>
+    </svg>
+    <div>
+      <div class="nav-name">FRANK <span>COVER</span></div>
+      <div class="nav-def"><em>frank</em> /fraNGk/ &mdash; open, honest &amp; direct</div>
+    </div>
+  </div>
   <div class="nav-right">
     <a href="tel:+14035366897" class="nav-phone">
-      <span class="nav-phone-dot"></span>(403) 536-6897
+      <div class="nav-phone-dot"></div>
+      (403) 536-6897
     </a>
     <a href="#get-started" class="nav-cta">Free Consultation</a>
   </div>
@@ -574,7 +589,7 @@ footer{border-top:1px solid var(--border);padding:32px 52px;display:flex;align-i
     <div>
       <div class="kicker"><div class="kicker-line"></div><span class="kicker-txt">Free Consultation</span></div>
       <h2 class="s-h reveal">15 MINUTES.<br/><span class="d">THAT'S ALL IT TAKES.</span></h2>
-      <p class="s-p reveal" style="margin-top:18px">Tell Frank a bit about your situation. He'll confirm whether an HSA makes sense for you, which plan structure fits your business type, and get everything activated — all on one call. No obligation.</p>
+      <p class="s-p reveal" style="margin-top:18px">Tell Frank a bit about your situation. We'll confirm whether an HSA makes sense for you, which plan structure fits your business type, and get everything activated — all on one call. No obligation.</p>
       <div class="form-promise reveal" style="margin-top:32px">
         <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Incorporated or self-employed?</strong> Frank will confirm which HSA structure applies to you and what the deduction looks like in your bracket.</p></div>
         <div class="fp"><div class="fp-dot"></div><p class="fp-txt"><strong>Already have a group plan?</strong> Frank will tell you honestly whether layering an HSA on top makes financial sense — or if you're already covered.</p></div>
@@ -710,7 +725,7 @@ footer{border-top:1px solid var(--border);padding:32px 52px;display:flex;align-i
             Exactly how much does this cost me? Be specific.
             <span class="faq-ico"></span>
           </button>
-          <div class="faq-ans"><div class="faq-ans-inner">Here's the complete breakdown: <strong>Setup fee: $0.</strong> Monthly fee: $0. Annual fee: $0. Per-employee fee: $0. When you submit a claim, the administrator charges a <strong>5% administration fee</strong> on the claim amount. That fee is paid by your corporation and is itself tax-deductible as a business expense. On a $3,000 claim year, your total admin cost is $150 — and that $150 is also deductible. Frank earns his fee from the administrator; you don't pay Frank separately. That's the complete picture.</div></div>
+          <div class="faq-ans"><div class="faq-ans-inner">Here's the complete breakdown: <strong>Setup fee: $0.</strong> Monthly fee: $0. Annual fee: $0. Per-employee fee: $0. When you submit a claim, the administrator charges a <strong>5% administration fee</strong> on the claim amount. That fee is paid by your corporation and is itself tax-deductible as a business expense. On a $3,000 claim year, your total admin cost is $150 — and that $150 is also deductible. Frank earns a fee from the administrator; you don't pay Frank separately. That's the complete picture.</div></div>
         </div>
 
         <div class="faq-item">
