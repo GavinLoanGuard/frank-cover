@@ -34,7 +34,7 @@ export default function Testimonials() {
           className="text-center max-w-2xl mx-auto mb-16"
         >
           <img
-            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6998a0c7e276eec875e1c31e/e89088f1a_frank-avatar.png"
+            src="/images/frank-avatar.png"
             alt="Frank Cover"
             className="w-20 h-20 rounded-full mx-auto mb-6 border-2 border-[#C8F562]/30"
           />

@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6998a0c7e276eec875e1c31e/21a262195_frank-favicon.png" alt="Frank Cover" className="w-8 h-8 rounded-full" />
+              <img src="/images/frank-favicon.png" alt="Frank Cover" className="w-8 h-8 rounded-full" />
               <span className="text-white font-semibold text-lg">Frank Cover</span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">

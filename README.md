@@ -1,39 +1,27 @@
-**Welcome to your Base44 project** 
+# Frank Cover
 
-**About**
+Independent life insurance advisory site for Alberta, Canada.
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+## Local development
 
-This project contains everything you need to run your app locally.
-
-**Edit the code in your local development environment**
-
-Any change pushed to the repo will also be reflected in the Base44 Builder.
-
-**Prerequisites:** 
-
-1. Clone the repository using the project's Git URL 
+1. Clone the repository
 2. Navigate to the project directory
 3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+4. Run the app: `npm run dev`
 
-```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
+## Image assets
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
-```
+The following images need to be placed in `public/images/` for the site to display correctly:
 
-Run the app: `npm run dev`
+- `frank-favicon.png` — small logo used in the footer
+- `logo-transparent.png` — header logo
+- `frank-avatar.png` — Frank's photo used in testimonials
+- `frank-hero.png` — hero section portrait
 
-**Publish your changes**
+## Lead form
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+The lead capture form currently shows a success state as a placeholder. Replace the `TODO` comment in `src/components/frank/LeadForm.jsx` with your preferred form backend (e.g. Web3Forms).
 
-**Docs & Support**
+## Deploy
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+Push to `main` — Vercel auto-deploys.

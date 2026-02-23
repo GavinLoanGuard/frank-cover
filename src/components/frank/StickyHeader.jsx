@@ -54,7 +54,7 @@ export default function StickyHeader({ onCTAClick, funnel }) {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center">
-            <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6998a0c7e276eec875e1c31e/2cf107d23_logo-transparent.png" alt="Frank Cover" className="h-9 w-auto" />
+            <img src="/images/logo-transparent.png" alt="Frank Cover" className="h-9 w-auto" />
           </a>
 
           {/* Desktop nav */}

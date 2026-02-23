@@ -1,0 +1,10 @@
+{
+  "name": "Frank Cover",
+  "short_name": "Frank Cover",
+  "description": "Life insurance and financial protection built for Canadians",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#C8F562",
+  "icons": []
+}

@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowRight, Lock, CheckCircle2, Loader2 } from "lucide-react";
-import { base44 } from "@/api/base44Client";
-
 const FUNNEL_DEFAULTS = {
   hsa: { label: "What best describes you?", options: [
     { value: "incorporated_owner", label: "Incorporated Business Owner" },
@@ -59,12 +57,9 @@ export default function LeadForm({ inline = false, funnel = "default" }) {
       });
     }
 
-    await base44.entities.Lead.create({
-      ...form,
-      ...utmParams,
-      status: "new",
-      message: funnel !== "default" ? `Funnel: ${funnel}` : form.message || "",
-    });
+    // TODO: Replace with Web3Forms or another lead capture service
+    // Lead data: { ...form, ...utmParams, status: "new", funnel }
+    await new Promise((resolve) => setTimeout(resolve, 400));
     setSubmitted(true);
     setLoading(false);
   };

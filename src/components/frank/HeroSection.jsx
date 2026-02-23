@@ -120,7 +120,7 @@ export default function HeroSection({ onCTAClick }) {
               <div className="w-[400px] h-[480px] rounded-3xl bg-gradient-to-b from-white/[0.06] to-transparent border border-white/[0.08] flex items-end justify-center overflow-hidden">
                 <div className="relative w-full h-full flex items-end justify-center">
                       <img
-                        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6998a0c7e276eec875e1c31e/0c27b2a0f_frank-hero.png"
+                        src="/images/frank-hero.png"
                         alt="Frank Cover"
                         className="w-full h-full object-contain object-bottom"
                       />
