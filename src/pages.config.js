@@ -49,12 +49,18 @@
  */
 import Home from './pages/Home';
 import HSA from './pages/HSA';
+import Life from './pages/Life';
+import Mortgage from './pages/Mortgage';
+import Disability from './pages/Disability';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
     "Home": Home,
     "HSA": HSA,
+    "Life": Life,
+    "Mortgage": Mortgage,
+    "Disability": Disability,
 }
 
 export const pagesConfig = {

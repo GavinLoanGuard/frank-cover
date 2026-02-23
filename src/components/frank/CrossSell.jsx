@@ -8,14 +8,14 @@ const SOLUTIONS = {
     icon: Heart,
     label: "Life Insurance",
     desc: "Term and whole life for families and mortgage holders.",
-    page: "Home",
+    page: "Life",
     color: "text-rose-400",
   },
   mortgage: {
     icon: Home,
     label: "Mortgage Protection",
     desc: "Protect your home and family if you're no longer here.",
-    page: "Home",
+    page: "Mortgage",
     color: "text-amber-400",
   },
   hsa: {
@@ -29,7 +29,7 @@ const SOLUTIONS = {
     icon: ShieldCheck,
     label: "Disability / Income Protection",
     desc: "Replace your income if illness or injury keeps you off work.",
-    page: "Home",
+    page: "Disability",
     color: "text-blue-400",
   },
 };

@@ -7,10 +7,10 @@ import { createPageUrl } from "@/utils";
 const PHONE_NUMBER = "(403) 536-6897";
 
 const SOLUTIONS = [
-  { icon: Heart, label: "Life Insurance", desc: "Term & whole life", href: createPageUrl("Home"), color: "text-rose-400" },
-  { icon: Home, label: "Mortgage Protection", desc: "Protect your home", href: createPageUrl("Home"), color: "text-amber-400" },
+  { icon: Heart, label: "Life Insurance", desc: "Term & whole life", href: createPageUrl("Life"), color: "text-rose-400" },
+  { icon: Home, label: "Mortgage Protection", desc: "Protect your home", href: createPageUrl("Mortgage"), color: "text-amber-400" },
   { icon: Briefcase, label: "Health Spending Account", desc: "HSA / Cost-Plus / PHSP", href: createPageUrl("HSA"), color: "text-[#C8F562]" },
-  { icon: ShieldCheck, label: "Disability Insurance", desc: "Income protection", href: createPageUrl("Home"), color: "text-blue-400" },
+  { icon: ShieldCheck, label: "Disability Insurance", desc: "Income protection", href: createPageUrl("Disability"), color: "text-blue-400" },
 ];
 
 const NAV_ITEMS = [
